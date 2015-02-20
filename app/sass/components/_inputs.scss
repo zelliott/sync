@@ -3,6 +3,7 @@ input[type=email],
 input[type=number] {
   background: #eee;
   border: none;
+  border-left: 2px solid transparent;
   font-weight: 500;
   padding: 15px;
 
@@ -11,6 +12,8 @@ input[type=number] {
   }
 
   &:focus {
+    background: #ddd;
+    border-left-color: $blue;
     outline: none;
   }
 }

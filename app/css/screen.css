@@ -792,7 +792,7 @@ h2 {
   .add-flow input[type=number] {
     width: 50px; }
   .add-flow button {
-    display: inline-block;
+    display: block;
     margin-top: 20px; }
 
 .flows li {
@@ -802,7 +802,7 @@ h2 {
   .flows li .name {
     color: #2C9AB7;
     display: block;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 10px; }
   .flows li .info > div {
     display: inline-block;
@@ -836,6 +836,7 @@ input[type=email],
 input[type=number] {
   background: #eee;
   border: none;
+  border-left: 2px solid transparent;
   font-weight: 500;
   padding: 15px; }
   input[type=text]:hover,
@@ -845,6 +846,8 @@ input[type=number] {
   input[type=text]:focus,
   input[type=email]:focus,
   input[type=number]:focus {
+    background: #ddd;
+    border-left-color: #2C9AB7;
     outline: none; }
 
 /*# sourceMappingURL=screen.css.map */

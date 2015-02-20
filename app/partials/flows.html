@@ -14,14 +14,18 @@
   <input id="flow.input" placeholder="Input" ng-model="newFlow.input" type="email">
   <button>Add another input</button>
 
-  <label for="flow.reqDay">Request an update every (Sunday = 0, Monday = 1, ...)</label>
-  <input id="flow.reqDay" type="number" max="6" min="0" name="requestDay" ng-model="newFlow.requestDay">
+  <label for="flow.reqDay">Request an update every</label>
+  <select for="flow.reqDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="newFlow.requestDay">
+    <option style="display:none" value="">Select a day</option>
+  </select>
 
   <label for="flow.output">Who do you want the compiled report sent to?</label>
   <input id="flow.output" placeholder="Output" ng-model="newFlow.output" type="email">
 
-  <label for="flow.postDay">Send the compiled updates to me every (Sunday = 0, Monday = 1, ...)</label>
-  <input id="flow.postDay" type="number" max="6" min="0" name="postDay" ng-model="newFlow.postDay">
+  <label for="flow.postDay">Send the compiled updates to me every</label>
+  <select for="flow.postDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="newFlow.postDay">
+    <option style="display:none" value="">Select a day</option>
+  </select>
 
   <button type="submit" ng-click="addFlow()"><i class="oi oi-r" data-glyph="plus"></i>Add flow</button>
 </form>
@@ -58,19 +62,21 @@
       <input value="{{flow.input}}" ng-model="flow.input" type="email">
       <button>Add another input</button>
 
-      <label>Request an update every (Sunday = 0, Monday = 1, ...)</label>
-      <input value="{{flow.requestDay}}" type="number" max="6" min="0" name="requestDay" ng-model="flow.requestDay">
+      <label>Request an update every</label>
+      <select for="flow.reqDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="flow.requestDay">
+        <option style="display:none" value="">Select a day</option>
+      </select>
 
       <label>Who do you want the compiled report sent to?</label>
       <input value="{{flow.output}}" ng-model="flow.output" type="email">
 
-      <label>Send the compiled updates to me every (Sunday = 0, Monday = 1, ...)</label>
-      <input value="{{flow.postDay}}" type="number" max="6" min="0" name="postDay" ng-model="flow.postDay">
+      <label>Send the compiled updates to me every</label>
+      <select for="flow.postDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="newFlow.postDay">
+        <option style="display:none" value="">Select a day</option>
+      </select>
 
       <!--<label>Time</label>
       <input type="time" name="time" ng-model="newFlow.time">-->
-
-      <br /><br />
       <button type="submit" ng-click="saveFlow(flow)"><i class="oi oi-r" data-glyph="check"></i>Save flow</button>
     </form>
   </li>
