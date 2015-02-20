@@ -18,6 +18,39 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     };
   }])
 
+  .controller('FlowsCtrl', ['$scope', 'flowList', 'user', function($scope, flowList, user) {
+    $scope.newFlow = null;
+    $scope.user = user;
+    $scope.flows = flowList;
+
+    // add a flow
+    $scope.addFlow = function() {
+      $scope.newFlow.author = $scope.user.uid;
+      if($scope.newFlow.name) {
+        $scope.flows.$add($scope.newFlow);
+        $scope.newFlow = null;
+      }
+    };
+
+    // save a flow
+    $scope.saveFlow = function(flow) {
+      if(flow.name) {
+        $scope.flows.$save(flow);
+      }
+    };
+
+    // remove a flow
+    $scope.removeFlow = function(key) {
+      $scope.flows.$remove(key);
+    };
+
+    // show add flow
+    $scope.showForm = false;
+    $scope.showAddFlow = function() {
+      $scope.showForm = !$scope.showForm;
+    };
+  }])
+
   .controller('LoginCtrl', ['$scope', 'simpleLogin', '$location', function($scope, simpleLogin, $location) {
     $scope.email = null;
     $scope.pass = null;

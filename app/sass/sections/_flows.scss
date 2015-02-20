@@ -1,0 +1,76 @@
+h2 {
+  background: $blue;
+  color: #fff;
+  margin: 0;
+  padding: 30px 20px;
+}
+
+.flow-actions {
+  padding: 20px;
+}
+
+.add-flow {
+  background: #f7f7f7;
+  padding: 20px;
+
+  label,
+  input {
+    display: block;
+  }
+
+  label {
+    font-weight: 600;
+    padding: 20px 0 10px 0;
+  }
+
+  input {
+    width: 300px;
+  }
+
+  input[type=number] {
+    width: 50px;
+  }
+
+  button {
+    display: inline-block;
+    margin-top: 20px;
+  }
+}
+
+.flows {
+
+  li {
+    border-top: 1px solid #ddd;
+    display: block;
+    padding: 20px;
+
+    .name {
+      color: $blue;
+      display: block;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .info {
+
+      > div {
+        display: inline-block;
+        width: 20%;
+      }
+
+      .info-header {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+    }
+
+    button {
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    form {
+      display: none;
+    }
+  }
+}

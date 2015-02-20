@@ -10,7 +10,18 @@
 
      .factory('messageList', ['fbutil', function(fbutil) {
        return fbutil.syncArray('messages', {limit: 10, endAt: null});
-     }]);
+     }])
+
+     .factory('flowList', ['fbutil', function(fbutil) {
+       return fbutil.syncArray('flows', {limit: 10});
+     }])
+
+     .factory('mandrill', function() {
+       return {
+         initMandrill: function() {
+           return new mandrill.Mandrill('MhYflar4NJx7K24Bpri_3A', true);
+         }
+       };
+     });
 
 })();
-

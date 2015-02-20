@@ -20,6 +20,16 @@ angular.module('myApp.routes', ['ngRoute', 'simpleLogin'])
       templateUrl: 'partials/chat.html',
       controller: 'ChatCtrl'
     },
+    '/flows': {
+      templateUrl: 'partials/flows.html',
+      controller: 'FlowsCtrl',
+      authRequired: true,
+      resolve: {
+        user: ['simpleLogin', function(simpleLogin) {
+          return simpleLogin.getUser();
+        }]
+      }
+    },
     '/login': {
       templateUrl: 'partials/login.html',
       controller: 'LoginCtrl'

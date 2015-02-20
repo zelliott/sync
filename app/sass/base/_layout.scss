@@ -1,0 +1,22 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.menu {
+  padding: 20px;
+
+  li {
+    font-weight: 600;
+    margin-right: 40px;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}

@@ -85,4 +85,3 @@ angular.module('firebase.utils', ['firebase', 'myApp.config'])
         return $firebase(ref, props);
       }
    }]);
-

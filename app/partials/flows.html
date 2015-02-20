@@ -1,0 +1,77 @@
+<h2><i class="oi oi-r" data-glyph="loop"></i>Flows</h2>
+
+<div class="flow-actions">
+  <button ng-show="!showForm" ng-click="showAddFlow()"><i class="oi oi-r" data-glyph="plus"></i>Add new flow</button>
+  <button ng-show="showForm" ng-click="showAddFlow()"><i class="oi oi-r" data-glyph="ban"></i>Cancel new flow</button>
+</div>
+
+<form ng-show="showForm" class="add-flow">
+  <h3>Add new flow</h3>
+  <label for="flow.name">Name this flow</label>
+  <input id="flow.name" placeholder="Flow name" ng-model="newFlow.name" type="text">
+
+  <label for="flow.input">Who do you want an update from?</label>
+  <input id="flow.input" placeholder="Input" ng-model="newFlow.input" type="email">
+  <button>Add another input</button>
+
+  <label for="flow.reqDay">Request an update every (Sunday = 0, Monday = 1, ...)</label>
+  <input id="flow.reqDay" type="number" max="6" min="0" name="requestDay" ng-model="newFlow.requestDay">
+
+  <label for="flow.output">Who do you want the compiled report sent to?</label>
+  <input id="flow.output" placeholder="Output" ng-model="newFlow.output" type="email">
+
+  <label for="flow.postDay">Send the compiled updates to me every (Sunday = 0, Monday = 1, ...)</label>
+  <input id="flow.postDay" type="number" max="6" min="0" name="postDay" ng-model="newFlow.postDay">
+
+  <button type="submit" ng-click="addFlow()"><i class="oi oi-r" data-glyph="plus"></i>Add flow</button>
+</form>
+
+<ul class="flows">
+  <li ng-repeat="(key, flow) in flows | filter:{author: user.uid}">
+    <div class="name">{{flow.name}}</div>
+    <div class="info">
+      <div>
+        <div class="info-header">Inputs</div>
+        <div class="info-data">{{flow.input}}</div>
+      </div>
+      <div>
+        <div class="info-header">Request Day</div>
+        <div class="info-data">{{flow.requestDay}}</div>
+      </div>
+      <div>
+        <div class="info-header">Outputs</div>
+       <div class="info-data">{{flow.output}}</div>
+      </div>
+      <div>
+        <div class="info-header">Summary Day</div>
+        <div class="info-data">{{flow.postDay}}</div>
+      </div>
+    </div>
+    <button ng-click="editFlow(key)"><i class="oi oi-r" data-glyph="pencil"></i>Edit</button>
+    <button ng-click="removeFlow(key)"><i class="oi oi-r" data-glyph="ban"></i>Remove</button>
+
+    <form>
+      <label>Rename this flow</label>
+      <input value="{{flow.name}}" ng-model="flow.name">
+
+      <label>Who do you want an update from?</label>
+      <input value="{{flow.input}}" ng-model="flow.input" type="email">
+      <button>Add another input</button>
+
+      <label>Request an update every (Sunday = 0, Monday = 1, ...)</label>
+      <input value="{{flow.requestDay}}" type="number" max="6" min="0" name="requestDay" ng-model="flow.requestDay">
+
+      <label>Who do you want the compiled report sent to?</label>
+      <input value="{{flow.output}}" ng-model="flow.output" type="email">
+
+      <label>Send the compiled updates to me every (Sunday = 0, Monday = 1, ...)</label>
+      <input value="{{flow.postDay}}" type="number" max="6" min="0" name="postDay" ng-model="flow.postDay">
+
+      <!--<label>Time</label>
+      <input type="time" name="time" ng-model="newFlow.time">-->
+
+      <br /><br />
+      <button type="submit" ng-click="saveFlow(flow)"><i class="oi oi-r" data-glyph="check"></i>Save flow</button>
+    </form>
+  </li>
+</ul>

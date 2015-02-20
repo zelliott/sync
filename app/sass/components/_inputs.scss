@@ -1,0 +1,16 @@
+input[type=text],
+input[type=email],
+input[type=number] {
+  background: #eee;
+  border: none;
+  font-weight: 500;
+  padding: 15px;
+
+  &:hover {
+    background: #ddd;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
