@@ -33,6 +33,8 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
       { code: 6, name: 'Saturday' },
     ];
 
+    $scope.daysOfWeekArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
     // add a flow
     $scope.addFlow = function() {
       $scope.newFlow.author = $scope.user.uid;
@@ -44,9 +46,9 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     };
 
     // edit a flow
-    $scope.editFlow = function() {
+    $scope.editFlow = function(flow) {
 
-    }
+    };
 
     // save a flow
     $scope.saveFlow = function(flow) {
@@ -64,7 +66,6 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     $scope.showForm = false;
     $scope.showAddFlow = function() {
       $scope.showForm = !$scope.showForm;
-      jQuery('body').scrollTo('.add-form');
     };
   }])
 

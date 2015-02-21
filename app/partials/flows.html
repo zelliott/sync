@@ -40,7 +40,7 @@
       </div>
       <div>
         <div class="info-header">Request Day</div>
-        <div class="info-data">{{flow.requestDay}}</div>
+        <div class="info-data">{{daysOfWeekArray[flow.requestDay]}}</div>
       </div>
       <div>
         <div class="info-header">Outputs</div>
@@ -48,30 +48,32 @@
       </div>
       <div>
         <div class="info-header">Summary Day</div>
-        <div class="info-data">{{flow.postDay}}</div>
+        <div class="info-data">{{daysOfWeekArray[flow.postDay]}}</div>
+      </div>
+      <div>
+        <button ng-click="editFlow(flow)"><i class="oi oi-r" data-glyph="pencil"></i>Edit</button>
+        <button ng-click="removeFlow(key)"><i class="oi oi-r" data-glyph="ban"></i>Remove</button>
       </div>
     </div>
-    <button ng-click="editFlow(key)"><i class="oi oi-r" data-glyph="pencil"></i>Edit</button>
-    <button ng-click="removeFlow(key)"><i class="oi oi-r" data-glyph="ban"></i>Remove</button>
 
     <form>
-      <label>Rename this flow</label>
-      <input value="{{flow.name}}" ng-model="flow.name">
+      <label for="flow.editName">Rename this flow</label>
+      <input id="flow.editName" value="{{flow.name}}" ng-model="flow.name" type="text">
 
-      <label>Who do you want an update from?</label>
-      <input value="{{flow.input}}" ng-model="flow.input" type="email">
+      <label for="flow.editInput">Who do you want an update from?</label>
+      <input id="flow.editInput" value="{{flow.input}}" ng-model="flow.input" type="email">
       <button>Add another input</button>
 
-      <label>Request an update every</label>
-      <select for="flow.reqDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="flow.requestDay">
+      <label for="flow.editReqDay">Request an update every</label>
+      <select id="flow.editReqDay" for="flow.reqDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="flow.requestDay">
         <option style="display:none" value="">Select a day</option>
       </select>
 
-      <label>Who do you want the compiled report sent to?</label>
-      <input value="{{flow.output}}" ng-model="flow.output" type="email">
+      <label for="flow.editOutput">Who do you want the compiled report sent to?</label>
+      <input id="flow.editOutput" value="{{flow.output}}" ng-model="flow.output" type="email">
 
-      <label>Send the compiled updates to me every</label>
-      <select for="flow.postDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="newFlow.postDay">
+      <label for="flow.editPostDay">Send the compiled updates to me every</label>
+      <select id="flow.editPostDay" for="flow.postDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="newFlow.postDay">
         <option style="display:none" value="">Select a day</option>
       </select>
 

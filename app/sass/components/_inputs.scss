@@ -1,18 +1,18 @@
 input[type=text],
 input[type=email],
 input[type=number] {
-  background: #eee;
+  background: rgba(0, 0, 0, 0.08);
   border: none;
   border-left: 2px solid transparent;
   font-weight: 500;
   padding: 15px;
 
   &:hover {
-    background: #ddd;
+    background: rgba(0, 0, 0, 0.12);
   }
 
   &:focus {
-    background: #ddd;
+    background: rgba(0, 0, 0, 0.16);
     border-left-color: $blue;
     outline: none;
   }

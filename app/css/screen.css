@@ -779,21 +779,28 @@ h2 {
   padding: 20px; }
 
 .add-flow {
-  background: #f7f7f7;
+  background: #eee;
   padding: 20px; }
-  .add-flow label,
-  .add-flow input {
-    display: block; }
-  .add-flow label {
-    font-weight: 600;
-    padding: 20px 0 10px 0; }
-  .add-flow input {
-    width: 300px; }
-  .add-flow input[type=number] {
-    width: 50px; }
-  .add-flow button {
-    display: block;
-    margin-top: 20px; }
+
+.add-flow label,
+.add-flow input,
+.flows li form label,
+.flows li form input {
+  display: block; }
+.add-flow label,
+.flows li form label {
+  font-weight: 600;
+  padding: 20px 0 10px 0; }
+.add-flow input,
+.flows li form input {
+  width: 300px; }
+.add-flow input[type=number],
+.flows li form input[type=number] {
+  width: 50px; }
+.add-flow button,
+.flows li form button {
+  display: block;
+  margin-top: 20px; }
 
 .flows li {
   border-top: 1px solid #ddd;
@@ -806,13 +813,14 @@ h2 {
     margin-bottom: 10px; }
   .flows li .info > div {
     display: inline-block;
-    width: 20%; }
+    width: 19.5%;
+    vertical-align: top; }
   .flows li .info .info-header {
     font-weight: 600;
     margin-bottom: 5px; }
   .flows li button {
     display: inline-block;
-    margin-top: 20px; }
+    margin-top: 10px; }
   .flows li form {
     display: none; }
 
@@ -826,7 +834,8 @@ button {
     background: #333;
     color: #fff; }
   button:focus {
-    background: #ddd;
+    background: #111;
+    color: #fff;
     outline: none; }
   button i {
     font-size: 10px; }
@@ -834,7 +843,7 @@ button {
 input[type=text],
 input[type=email],
 input[type=number] {
-  background: #eee;
+  background: rgba(0, 0, 0, 0.08);
   border: none;
   border-left: 2px solid transparent;
   font-weight: 500;
@@ -842,11 +851,11 @@ input[type=number] {
   input[type=text]:hover,
   input[type=email]:hover,
   input[type=number]:hover {
-    background: #ddd; }
+    background: rgba(0, 0, 0, 0.12); }
   input[type=text]:focus,
   input[type=email]:focus,
   input[type=number]:focus {
-    background: #ddd;
+    background: rgba(0, 0, 0, 0.16);
     border-left-color: #2C9AB7;
     outline: none; }
 

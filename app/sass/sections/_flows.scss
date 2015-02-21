@@ -10,8 +10,12 @@ h2 {
 }
 
 .add-flow {
-  background: #f7f7f7;
+  background: #eee;
   padding: 20px;
+}
+
+.add-flow,
+.flows li form {
 
   label,
   input {
@@ -55,7 +59,8 @@ h2 {
 
       > div {
         display: inline-block;
-        width: 20%;
+        width: 19.5%;
+        vertical-align: top;
       }
 
       .info-header {
@@ -66,7 +71,7 @@ h2 {
 
     button {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     form {
