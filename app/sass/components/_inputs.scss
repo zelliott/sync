@@ -1,19 +1,21 @@
 input[type=text],
 input[type=email],
 input[type=number] {
-  background: rgba(0, 0, 0, 0.08);
+  background: #444;
+  @include border-radius(2px);
   border: none;
-  border-left: 2px solid transparent;
+  color: #999;
+  font-size: 13px;
   font-weight: 500;
-  padding: 15px;
+  padding: 10px;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.12);
+    background: #666;
   }
 
   &:focus {
-    background: rgba(0, 0, 0, 0.16);
-    border-left-color: $blue;
+    background: #eee;
+    color: #333;
     outline: none;
   }
 }

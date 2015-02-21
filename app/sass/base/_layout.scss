@@ -9,14 +9,16 @@ ul {
 }
 
 .menu {
+  background: #fff;
   padding: 20px;
 
   li {
+    color: #999;
     font-weight: 600;
     margin-right: 40px;
 
     &:hover {
-      color: $blue;
+      color: #333;
     }
   }
 }

@@ -32,15 +32,21 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
       { code: 5, name: 'Friday' },
       { code: 6, name: 'Saturday' },
     ];
-
     $scope.daysOfWeekArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    $scope.inputs = [{ email: '' }];
+    $scope.addInput = function() {
+      $scope.inputs.push({ email: '' });
+    };
 
     // add a flow
     $scope.addFlow = function() {
       $scope.newFlow.author = $scope.user.uid;
+      $scope.newFlow.input = $scope.inputs;
       if($scope.newFlow.name) {
         $scope.flows.$add($scope.newFlow);
         $scope.newFlow = null;
+        $scope.inputs = [{ email: '' }];
       }
       $scope.showForm = false;
     };

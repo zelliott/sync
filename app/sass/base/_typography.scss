@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
 
 body {
-  font: 15px 'Open Sans';
+  font: 14px 'Open Sans';
   color: #333;
   -webkit-font-smoothing: antialiased;
 }
@@ -29,4 +29,9 @@ h4 {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+input,
+button {
+  font: 14px 'Open Sans';
 }

@@ -730,7 +730,7 @@
   float: right; }
 
 body {
-  font: 15px 'Open Sans';
+  font: 14px 'Open Sans';
   color: #333;
   -webkit-font-smoothing: antialiased; }
 
@@ -754,6 +754,10 @@ a {
   color: inherit;
   text-decoration: none; }
 
+input,
+button {
+  font: 14px 'Open Sans'; }
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -762,15 +766,17 @@ ul {
     display: inline-block; }
 
 .menu {
+  background: #fff;
   padding: 20px; }
   .menu li {
+    color: #999;
     font-weight: 600;
     margin-right: 40px; }
     .menu li:hover {
-      color: #2C9AB7; }
+      color: #333; }
 
 h2 {
-  background: #2C9AB7;
+  background: #00A1DC;
   color: #fff;
   margin: 0;
   padding: 30px 20px; }
@@ -779,8 +785,18 @@ h2 {
   padding: 20px; }
 
 .add-flow {
-  background: #eee;
-  padding: 20px; }
+  background: #222;
+  color: #999;
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 30%;
+  z-index: 10000; }
+  .add-flow h3 {
+    color: #fff; }
 
 .add-flow label,
 .add-flow input,
@@ -790,9 +806,11 @@ h2 {
 .add-flow label,
 .flows li form label {
   font-weight: 600;
-  padding: 20px 0 10px 0; }
+  margin-top: 20px;
+  padding: 0 0 10px 0; }
 .add-flow input,
 .flows li form input {
+  margin-bottom: 10px;
   width: 300px; }
 .add-flow input[type=number],
 .flows li form input[type=number] {
@@ -807,7 +825,7 @@ h2 {
   display: block;
   padding: 20px; }
   .flows li .name {
-    color: #2C9AB7;
+    color: #00A1DC;
     display: block;
     font-weight: 700;
     margin-bottom: 10px; }
@@ -825,17 +843,18 @@ h2 {
     display: none; }
 
 button {
-  background: #ddd;
+  background: #999;
   border: none;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 10px 10px 8px 10px; }
+  font-size: 11px;
+  font-weight: 700;
+  padding: 10px;
+  text-transform: uppercase; }
   button:hover {
-    background: #333;
-    color: #fff; }
+    background: #ddd;
+    color: #333; }
   button:focus {
-    background: #111;
-    color: #fff;
+    background: #fff;
+    color: #333;
     outline: none; }
   button i {
     font-size: 10px; }
@@ -843,20 +862,25 @@ button {
 input[type=text],
 input[type=email],
 input[type=number] {
-  background: rgba(0, 0, 0, 0.08);
+  background: #444;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background-clip: padding-box;
   border: none;
-  border-left: 2px solid transparent;
+  color: #999;
+  font-size: 13px;
   font-weight: 500;
-  padding: 15px; }
+  padding: 10px; }
   input[type=text]:hover,
   input[type=email]:hover,
   input[type=number]:hover {
-    background: rgba(0, 0, 0, 0.12); }
+    background: #666; }
   input[type=text]:focus,
   input[type=email]:focus,
   input[type=number]:focus {
-    background: rgba(0, 0, 0, 0.16);
-    border-left-color: #2C9AB7;
+    background: #eee;
+    color: #333;
     outline: none; }
 
 /*# sourceMappingURL=screen.css.map */

@@ -11,8 +11,8 @@
   <input id="flow.name" placeholder="Flow name" ng-model="newFlow.name" type="text">
 
   <label for="flow.input">Who do you want an update from?</label>
-  <input id="flow.input" placeholder="Input" ng-model="newFlow.input" type="email">
-  <button>Add another input</button>
+  <input ng-repeat="input in inputs" id="flow.input" placeholder="Input" ng-model="input.email" type="email">
+  <button ng-click="addInput()">Add another input</button>
 
   <label for="flow.reqDay">Request an update every</label>
   <select for="flow.reqDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="newFlow.requestDay">
