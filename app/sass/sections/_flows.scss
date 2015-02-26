@@ -13,15 +13,24 @@
 .flow-labels {
   color: #999;
   font-size: 14px;
-  padding: 10px 0;
+  padding: 10px;
 
   > div {
     display: inline-block;
+    margin-right: 20px;
     vertical-align: top;
 
     .oi {
       font-size: 9px;
     }
+  }
+
+  .status-label {
+    width: 50px;
+  }
+
+  .name-label {
+    width: 25%;
   }
 }
 
@@ -38,8 +47,7 @@
   z-index: 10000;
 }
 
-.add-flow,
-.flows li form {
+.add-flow {
 
   label,
   input {
@@ -94,6 +102,7 @@
 
       > div {
         display: inline-block;
+        margin-right: 20px;
         vertical-align: top;
       }
 
@@ -101,7 +110,14 @@
         width: 25%;
       }
 
+      .flow-status {
+        color: $green;
+        text-align: center;
+        width: 50px;
+      }
+
       .flow-btns {
+        margin: 0;
         position: absolute;
         right: 0px;
 
@@ -109,10 +125,6 @@
           color: #999;
         }
       }
-    }
-
-    form {
-      display: none;
     }
   }
 }

@@ -56,8 +56,13 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     };
 
     // Edit a flow
-    $scope.editFlow = function(flow) {
-
+    $scope.showEditForm = {};
+    $scope.editFlow = function(flow, $index) {
+      if($scope.showEditForm[$index] === true) {
+        $scope.showEditForm[$index] = false;
+      } else {
+        $scope.showEditForm[$index] = true;
+      }
     };
 
     // Save a flow

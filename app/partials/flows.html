@@ -32,20 +32,25 @@
 </form>
 
 <div class="flow-labels">
-  <div>Name<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
+  <div class="status-label">Status</div>
+  <div class="name-label">Name<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
+  <div>Last Sent</div>
+  <div>Days To Next</div>
+  <div>Response %</div>
 </div>
 
 <ul class="flows">
   <li ng-repeat="(key, flow) in flows | filter:{author: user.uid}">
     <div class="info">
+      <div class="flow-status"><i class="oi oi-r" data-glyph="media-record"></i></div>
       <div class="flow-name">{{flow.name}}</div>
       <div class="flow-btns">
-        <button class="btn-link" ng-click="editFlow(flow)"><i class="oi oi-r" data-glyph="pencil"></i>Edit</button>
-        <button class="btn-link" ng-click="removeFlow(key)"><i class="oi oi-r" data-glyph="ban"></i>Remove</button>
+        <button class="btn-link" ng-click="editFlow(flow, $index)"><i class="oi oi-r" data-glyph="pencil"></i></button>
+        <button class="btn-link" ng-click="removeFlow(key)"><i class="oi oi-r" data-glyph="x"></i></button>
       </div>
     </div>
 
-    <form>
+    <form ng-hide="!showEditForm[$index]">
       <label for="flow.editName">Rename this flow</label>
       <input id="flow.editName" value="{{flow.name}}" ng-model="flow.name" type="text">
 

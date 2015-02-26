@@ -804,12 +804,17 @@ ul {
 .flow-labels {
   color: #999;
   font-size: 14px;
-  padding: 10px 0; }
+  padding: 10px; }
   .flow-labels > div {
     display: inline-block;
+    margin-right: 20px;
     vertical-align: top; }
     .flow-labels > div .oi {
       font-size: 9px; }
+  .flow-labels .status-label {
+    width: 50px; }
+  .flow-labels .name-label {
+    width: 25%; }
 
 .add-flow {
   background: #222;
@@ -824,26 +829,20 @@ ul {
   z-index: 10000; }
 
 .add-flow label,
-.add-flow input,
-.flows li form label,
-.flows li form input {
+.add-flow input {
   display: block; }
-.add-flow div input,
-.flows li form div input {
+.add-flow div input {
   display: inline-block;
   width: 138px; }
-.add-flow label,
-.flows li form label {
+.add-flow label {
   font-weight: 500;
   font-size: 13px;
   margin-top: 30px;
   padding: 0 0 10px 0; }
-.add-flow input,
-.flows li form input {
+.add-flow input {
   margin-bottom: 4px;
   width: 300px; }
-.add-flow button,
-.flows li form button {
+.add-flow button {
   display: block;
   margin-top: 20px; }
 
@@ -862,16 +861,20 @@ ul {
       line-height: 36px; }
       .flows li .info > div {
         display: inline-block;
+        margin-right: 20px;
         vertical-align: top; }
       .flows li .info .flow-name {
         width: 25%; }
+      .flows li .info .flow-status {
+        color: #4AB67C;
+        text-align: center;
+        width: 50px; }
       .flows li .info .flow-btns {
+        margin: 0;
         position: absolute;
         right: 0px; }
         .flows li .info .flow-btns button {
           color: #999; }
-    .flows li form {
-      display: none; }
 
 button {
   background: transparent;
