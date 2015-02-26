@@ -19,10 +19,13 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
   }])
 
   .controller('FlowsCtrl', ['$scope', 'flowList', 'user', function($scope, flowList, user) {
+
+    // Store scopes
     $scope.newFlow = null;
     $scope.user = user;
     $scope.flows = flowList;
 
+    // Days of the week info
     $scope.daysOfWeek = [
       { code: 0, name: 'Sunday' },
       { code: 1, name: 'Monday' },
@@ -34,41 +37,42 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     ];
     $scope.daysOfWeekArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+    // Track multiple inputs
     $scope.inputs = [{ email: '' }];
     $scope.addInput = function() {
       $scope.inputs.push({ email: '' });
     };
 
-    // add a flow
+    // Add a flow
     $scope.addFlow = function() {
       $scope.newFlow.author = $scope.user.uid;
       $scope.newFlow.input = $scope.inputs;
       if($scope.newFlow.name) {
         $scope.flows.$add($scope.newFlow);
         $scope.newFlow = null;
-        $scope.inputs = [{ email: '' }];
+        $scope.inputs = [{ name:'', email: '' }];
       }
       $scope.showForm = false;
     };
 
-    // edit a flow
+    // Edit a flow
     $scope.editFlow = function(flow) {
 
     };
 
-    // save a flow
+    // Save a flow
     $scope.saveFlow = function(flow) {
       if(flow.name) {
         $scope.flows.$save(flow);
       }
     };
 
-    // remove a flow
+    // Remove a flow
     $scope.removeFlow = function(key) {
       $scope.flows.$remove(key);
     };
 
-    // show add flow
+    // Show add flow form
     $scope.showForm = false;
     $scope.showAddFlow = function() {
       $scope.showForm = !$scope.showForm;

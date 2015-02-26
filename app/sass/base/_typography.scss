@@ -1,9 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
 
 body {
-  font: 14px 'Open Sans';
+  font: 15px Helvetica Neue;
   color: #333;
   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 10px 0;
 }
 
 h1 {
@@ -33,5 +40,5 @@ a {
 
 input,
 button {
-  font: 14px 'Open Sans';
+  font: 14px Helvetica Neue;
 }

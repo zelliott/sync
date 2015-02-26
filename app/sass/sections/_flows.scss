@@ -1,12 +1,33 @@
-h2 {
-  background: $blue;
-  color: #fff;
-  margin: 0;
-  padding: 30px 20px;
+.flows-container {
+  margin: 0 auto;
+  width: 1000px;
 }
 
-.flow-actions {
-  padding: 20px;
+.flow-header {
+  position: relative;
+
+  h3 {
+    display: inline-block;
+  }
+
+  button .oi {
+    font-size: 16px !important;
+  }
+}
+
+.flow-labels {
+  color: #999;
+  font-size: 14px;
+  padding: 10px 0;
+
+  > div {
+    display: inline-block;
+    vertical-align: top;
+
+    .oi {
+      font-size: 9px;
+    }
+  }
 }
 
 .add-flow {
@@ -18,12 +39,8 @@ h2 {
   position: fixed;
   right: 0;
   top: 0;
-  width: 30%;
+  width: 400px;
   z-index: 10000;
-
-  h3 {
-    color: #fff;
-  }
 }
 
 .add-flow,
@@ -34,19 +51,24 @@ h2 {
     display: block;
   }
 
+  div {
+
+    input {
+      display: inline-block;
+      width: 138px;
+    }
+  }
+
   label {
-    font-weight: 600;
-    margin-top: 20px;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 30px;
     padding: 0 0 10px 0;
   }
 
   input {
-    margin-bottom: 10px;
+    margin-bottom: 4px;
     width: 300px;
-  }
-
-  input[type=number] {
-    width: 50px;
   }
 
   button {
@@ -56,36 +78,42 @@ h2 {
 }
 
 .flows {
+  border-top: 1px solid #ddd;
 
   li {
     border-top: 1px solid #ddd;
     display: block;
-    padding: 20px;
+    padding: 10px;
+    position: relative;
 
-    .name {
-      color: $blue;
-      display: block;
-      font-weight: 700;
-      margin-bottom: 10px;
+    &:hover {
+      background: #eee;
+
+      .flow-btns button {
+        color: #333 !important;
+      }
     }
 
     .info {
+      line-height: 36px;
 
       > div {
         display: inline-block;
-        width: 19.5%;
         vertical-align: top;
       }
 
-      .info-header {
-        font-weight: 600;
-        margin-bottom: 5px;
+      .flow-name {
+        width: 25%;
       }
-    }
 
-    button {
-      display: inline-block;
-      margin-top: 10px;
+      .flow-btns {
+        position: absolute;
+        right: 0px;
+
+        button {
+          color: #999;
+        }
+      }
     }
 
     form {

@@ -730,9 +730,15 @@
   float: right; }
 
 body {
-  font: 14px 'Open Sans';
+  font: 15px Helvetica Neue;
   color: #333;
   -webkit-font-smoothing: antialiased; }
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 10px 0; }
 
 h1 {
   font: 40px Helvetica Neue;
@@ -756,7 +762,7 @@ a {
 
 input,
 button {
-  font: 14px 'Open Sans'; }
+  font: 14px Helvetica Neue; }
 
 ul {
   list-style-type: none;
@@ -767,7 +773,10 @@ ul {
 
 .menu {
   background: #fff;
-  padding: 20px; }
+  font-size: 14px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 1000px; }
   .menu li {
     color: #999;
     font-weight: 600;
@@ -775,14 +784,26 @@ ul {
     .menu li:hover {
       color: #333; }
 
-h2 {
-  background: #00A1DC;
-  color: #fff;
-  margin: 0;
-  padding: 30px 20px; }
+.flows-container {
+  margin: 0 auto;
+  width: 1000px; }
 
-.flow-actions {
-  padding: 20px; }
+.flow-header {
+  position: relative; }
+  .flow-header h3 {
+    display: inline-block; }
+  .flow-header button .oi {
+    font-size: 16px !important; }
+
+.flow-labels {
+  color: #999;
+  font-size: 14px;
+  padding: 10px 0; }
+  .flow-labels > div {
+    display: inline-block;
+    vertical-align: top; }
+    .flow-labels > div .oi {
+      font-size: 9px; }
 
 .add-flow {
   background: #222;
@@ -793,71 +814,81 @@ h2 {
   position: fixed;
   right: 0;
   top: 0;
-  width: 30%;
+  width: 400px;
   z-index: 10000; }
-  .add-flow h3 {
-    color: #fff; }
 
 .add-flow label,
 .add-flow input,
 .flows li form label,
 .flows li form input {
   display: block; }
+.add-flow div input,
+.flows li form div input {
+  display: inline-block;
+  width: 138px; }
 .add-flow label,
 .flows li form label {
-  font-weight: 600;
-  margin-top: 20px;
+  font-weight: 500;
+  font-size: 13px;
+  margin-top: 30px;
   padding: 0 0 10px 0; }
 .add-flow input,
 .flows li form input {
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   width: 300px; }
-.add-flow input[type=number],
-.flows li form input[type=number] {
-  width: 50px; }
 .add-flow button,
 .flows li form button {
   display: block;
   margin-top: 20px; }
 
-.flows li {
-  border-top: 1px solid #ddd;
-  display: block;
-  padding: 20px; }
-  .flows li .name {
-    color: #00A1DC;
+.flows {
+  border-top: 1px solid #ddd; }
+  .flows li {
+    border-top: 1px solid #ddd;
     display: block;
-    font-weight: 700;
-    margin-bottom: 10px; }
-  .flows li .info > div {
-    display: inline-block;
-    width: 19.5%;
-    vertical-align: top; }
-  .flows li .info .info-header {
-    font-weight: 600;
-    margin-bottom: 5px; }
-  .flows li button {
-    display: inline-block;
-    margin-top: 10px; }
-  .flows li form {
-    display: none; }
+    padding: 10px;
+    position: relative; }
+    .flows li:hover {
+      background: #eee; }
+      .flows li:hover .flow-btns button {
+        color: #333 !important; }
+    .flows li .info {
+      line-height: 36px; }
+      .flows li .info > div {
+        display: inline-block;
+        vertical-align: top; }
+      .flows li .info .flow-name {
+        width: 25%; }
+      .flows li .info .flow-btns {
+        position: absolute;
+        right: 0px; }
+        .flows li .info .flow-btns button {
+          color: #999; }
+    .flows li form {
+      display: none; }
 
 button {
-  background: #999;
+  background: transparent;
   border: none;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 10px;
-  text-transform: uppercase; }
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px; }
   button:hover {
-    background: #ddd;
-    color: #333; }
+    background: transparent; }
   button:focus {
-    background: #fff;
-    color: #333;
+    background: transparent;
     outline: none; }
   button i {
     font-size: 10px; }
+
+.btn-light {
+  background: #ccc;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background-clip: padding-box; }
+  .btn-light:hover {
+    background: #eee; }
 
 input[type=text],
 input[type=email],
