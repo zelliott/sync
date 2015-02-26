@@ -5,6 +5,7 @@
 </div>
 
 <form ng-show="showForm" class="add-flow">
+  <h4>Add a new flow</h4>
   <label for="flow.name">Name this flow</label>
   <input id="flow.name" placeholder="Flow name" ng-model="newFlow.name" type="text">
 
@@ -73,7 +74,7 @@
 
       <!--<label>Time</label>
       <input type="time" name="time" ng-model="newFlow.time">-->
-      <button type="submit" ng-click="saveFlow(flow)"><i class="oi oi-r" data-glyph="check"></i>Save flow</button>
+      <button class="btn-light" type="submit" ng-click="saveFlow(flow)"><i class="oi oi-r" data-glyph="check"></i>Save flow</button>
     </form>
   </li>
 </ul>

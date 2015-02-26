@@ -753,8 +753,8 @@ h3 {
   font-weight: 600; }
 
 h4 {
-  font: 20px Helvetica Neue;
-  font-weight: 500; }
+  font: 18px Helvetica Neue;
+  font-weight: 600; }
 
 a {
   color: inherit;
@@ -834,11 +834,6 @@ ul {
 .add-flow div input {
   display: inline-block;
   width: 138px; }
-.add-flow label {
-  font-weight: 500;
-  font-size: 13px;
-  margin-top: 30px;
-  padding: 0 0 10px 0; }
 .add-flow input {
   margin-bottom: 4px;
   width: 300px; }
@@ -875,6 +870,20 @@ ul {
         right: 0px; }
         .flows li .info .flow-btns button {
           color: #999; }
+    .flows li form {
+      background: #222;
+      color: #999;
+      margin: 10px;
+      padding: 20px; }
+      .flows li form label,
+      .flows li form input {
+        display: block; }
+      .flows li form input {
+        margin-bottom: 4px;
+        width: 300px; }
+      .flows li form button {
+        display: block;
+        margin-top: 20px; }
 
 button {
   background: transparent;
@@ -908,7 +917,7 @@ input[type=number] {
   -webkit-border-radius: 2px;
   background-clip: padding-box;
   border: none;
-  color: #999;
+  color: #ccc;
   font-size: 13px;
   font-weight: 500;
   padding: 10px; }
@@ -922,5 +931,11 @@ input[type=number] {
     background: #eee;
     color: #333;
     outline: none; }
+
+label {
+  font-weight: 500;
+  font-size: 13px;
+  margin-top: 30px;
+  padding: 0 0 10px 0; }
 
 /*# sourceMappingURL=screen.css.map */
