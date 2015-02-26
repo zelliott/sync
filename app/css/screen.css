@@ -780,19 +780,19 @@ ul {
     vertical-align: top; }
 
 .menu {
-  background: #fff;
   font-size: 14px;
   display: inline-block;
-  margin: 0 auto;
+  margin: 30px auto 0 auto;
   padding: 20px;
   width: 100px; }
   .menu li {
-    color: #999;
-    display: block;
-    font-weight: 600;
-    margin-bottom: 20px; }
-    .menu li:hover {
-      color: #333; }
+    display: block; }
+    .menu li a {
+      color: #999;
+      display: block;
+      padding: 10px 0; }
+      .menu li a:hover {
+        color: #333; }
 
 .flow-header {
   position: relative; }
