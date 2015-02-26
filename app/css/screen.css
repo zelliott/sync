@@ -802,13 +802,16 @@ ul {
     font-size: 16px !important; }
 
 .flow-labels {
-  color: #999;
   font-size: 14px;
   padding: 10px; }
   .flow-labels > div {
+    color: #999;
+    cursor: pointer;
     display: inline-block;
     margin-right: 20px;
     vertical-align: top; }
+    .flow-labels > div:hover {
+      color: #333; }
     .flow-labels > div .oi {
       font-size: 9px; }
   .flow-labels .status-label {
@@ -818,6 +821,7 @@ ul {
 
 .add-flow {
   background: #222;
+  border-left: 5px solid #fff;
   color: #999;
   height: 100vh;
   overflow-y: scroll;
@@ -861,9 +865,12 @@ ul {
       .flows li .info .flow-name {
         width: 25%; }
       .flows li .info .flow-status {
-        color: #4AB67C;
+        color: #FEC451;
+        cursor: pointer;
         text-align: center;
         width: 50px; }
+      .flows li .info .flow-status.on {
+        color: #4AB67C !important; }
       .flows li .info .flow-btns {
         margin: 0;
         position: absolute;
@@ -907,6 +914,8 @@ button {
   background-clip: padding-box; }
   .btn-light:hover {
     background: #eee; }
+  .btn-light:focus {
+    background: #fff; }
 
 input[type=text],
 input[type=email],
@@ -932,7 +941,7 @@ input[type=number] {
     color: #333;
     outline: none; }
 
-label {
+form label {
   font-weight: 500;
   font-size: 13px;
   margin-top: 30px;

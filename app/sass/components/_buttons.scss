@@ -37,4 +37,8 @@ button {
   &:hover {
     background: #eee;
   }
+
+  &:focus {
+    background: #fff;
+  }
 }

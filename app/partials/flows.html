@@ -35,46 +35,60 @@
 <div class="flow-labels">
   <div class="status-label">Status</div>
   <div class="name-label">Name<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
-  <div>Last Sent</div>
-  <div>Days To Next</div>
-  <div>Response %</div>
+  <div>Last Sent<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
+  <div>Days To Next<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
+  <div>Response %<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
 </div>
 
 <ul class="flows">
-  <li ng-repeat="(key, flow) in flows | filter:{author: user.uid}">
+  <li ng-repeat="(key, flow) in flows | filter:{author: user.uid}
+    | orderBy: flow.name">
     <div class="info">
-      <div class="flow-status"><i class="oi oi-r" data-glyph="media-record"></i></div>
+      <div class="flow-status" ng-class="{on: flow.status===1}" ng-click="toggleStatus(flow)">
+        <i class="oi oi-r" data-glyph="media-record"></i>
+      </div>
       <div class="flow-name">{{flow.name}}</div>
+      <div class="last-sent">{{daysOfWeekArray[flow.last_sent]}}</div>
+      <div class="days-to-next"></div>
       <div class="flow-btns">
-        <button class="btn-link" ng-click="editFlow(flow, $index)"><i class="oi oi-r" data-glyph="pencil"></i></button>
+        <button class="btn-link" ng-click="editFlow(flow, $index)" ng-hide="showEditForm[$index]">
+          <i class="oi oi-r" data-glyph="pencil"></i>
+        </button>
+        <button class="btn-link" ng-click="editFlow(flow, $index)" ng-show="showEditForm[$index]">
+          <i class="oi oi-r" data-glyph="ban"></i>
+        </button>
         <button class="btn-link" ng-click="removeFlow(key)"><i class="oi oi-r" data-glyph="x"></i></button>
       </div>
     </div>
 
     <form ng-hide="!showEditForm[$index]">
+      <h4>Edit Flow</h4>
       <label for="flow.editName">Rename this flow</label>
       <input id="flow.editName" value="{{flow.name}}" ng-model="flow.name" type="text">
 
-      <label for="flow.editInput">Who do you want an update from?</label>
-      <input id="flow.editInput" value="{{flow.input}}" ng-model="flow.input" type="email">
-      <button>Add another input</button>
+      <label for="flow.editInput">Change who you want an update from</label>
+      <div ng-repeat="input in flow.input">
+        <input id="flow.editInput" value="{{input.name}}" ng-model="input.name" type="text">
+        <input placeholder="Email" value="{{input.email}}" ng-model="input.email" type="email">
+      </div>
+      <button class="btn-light"><i class="oi oi-r" data-glyph="plus"></i>Add another input</button>
 
-      <label for="flow.editReqDay">Request an update every</label>
+      <label for="flow.editReqDay">Change when you request an update</label>
       <select id="flow.editReqDay" for="flow.reqDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="flow.requestDay">
         <option style="display:none" value="">Select a day</option>
       </select>
 
-      <label for="flow.editOutput">Who do you want the compiled report sent to?</label>
+      <label for="flow.editOutput">Change who you want the compiled report sent to</label>
       <input id="flow.editOutput" value="{{flow.output}}" ng-model="flow.output" type="email">
 
-      <label for="flow.editPostDay">Send the compiled updates to me every</label>
+      <label for="flow.editPostDay">Change when you want the compiled updates sent</label>
       <select id="flow.editPostDay" for="flow.postDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="newFlow.postDay">
         <option style="display:none" value="">Select a day</option>
       </select>
 
       <!--<label>Time</label>
       <input type="time" name="time" ng-model="newFlow.time">-->
-      <button class="btn-light" type="submit" ng-click="saveFlow(flow)"><i class="oi oi-r" data-glyph="check"></i>Save flow</button>
+      <button class="btn-light" type="submit" ng-click="saveFlow(flow, $index)"><i class="oi oi-r" data-glyph="check"></i>Save changes</button>
     </form>
   </li>
 </ul>

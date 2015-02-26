@@ -21,7 +21,11 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
   .controller('FlowsCtrl', ['$scope', 'flowList', 'user', function($scope, flowList, user) {
 
     // Store scopes
-    $scope.newFlow = null;
+    $scope.newFlow = {
+      last_sent: 7,
+      total_sent: 0,
+      status: 1
+    };
     $scope.user = user;
     $scope.flows = flowList;
 
@@ -47,9 +51,12 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     $scope.addFlow = function() {
       $scope.newFlow.author = $scope.user.uid;
       $scope.newFlow.input = $scope.inputs;
+
       if($scope.newFlow.name) {
         $scope.flows.$add($scope.newFlow);
-        $scope.newFlow = null;
+
+        // Reset objects
+        $scope.newFlow = {};
         $scope.inputs = [{ name:'', email: '' }];
       }
       $scope.showForm = false;
@@ -66,11 +73,22 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     };
 
     // Save a flow
-    $scope.saveFlow = function(flow) {
+    $scope.saveFlow = function(flow, $index) {
       if(flow.name) {
         $scope.flows.$save(flow);
       }
+      $scope.showEditForm[$index] = false;
     };
+
+    // Toggle a flow status
+    $scope.toggleStatus = function(flow) {
+      if(flow.status === 1) {
+        flow.status = 0;
+      } else {
+        flow.status = 1;
+      }
+      $scope.flows.$save(flow);
+    }
 
     // Remove a flow
     $scope.removeFlow = function(key) {

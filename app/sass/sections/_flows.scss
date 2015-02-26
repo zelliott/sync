@@ -11,14 +11,19 @@
 }
 
 .flow-labels {
-  color: #999;
   font-size: 14px;
   padding: 10px;
 
   > div {
+    color: #999;
+    cursor: pointer;
     display: inline-block;
     margin-right: 20px;
     vertical-align: top;
+
+    &:hover {
+      color: #333;
+    }
 
     .oi {
       font-size: 9px;
@@ -36,6 +41,7 @@
 
 .add-flow {
   background: #222;
+  border-left: 5px solid #fff;
   color: #999;
   height: 100vh;
   overflow-y: scroll;
@@ -104,9 +110,14 @@
       }
 
       .flow-status {
-        color: $green;
+        color: $yellow;
+        cursor: pointer;
         text-align: center;
         width: 50px;
+      }
+
+      .flow-status.on {
+        color: $green !important;
       }
 
       .flow-btns {
