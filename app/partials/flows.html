@@ -4,36 +4,38 @@
   <button ng-show="showForm" ng-click="showAddFlow()"><i class="oi oi-r" data-glyph="ban"></i></button>
 </div>
 
-<form ng-show="showForm" class="add-flow">
-  <h4>Add a new flow</h4>
-  <label for="flow.name">Name this flow</label>
-  <input id="flow.name" placeholder="Flow name" ng-model="newFlow.name" type="text">
+<div ng-show="showForm" class="add-flow">
+  <form>
+    <h4>Add a new flow</h4>
+    <label for="flow.name">Name this flow</label>
+    <input id="flow.name" placeholder="Flow name" ng-model="newFlow.name" type="text">
 
-  <label for="flow.body">What's the content of your message?</label>
-  <textarea id="flow.body" placeholder="Flow body" ng-model="newFlow.body"></textarea>
+    <label for="flow.body">What's the content of your message?</label>
+    <textarea id="flow.body" placeholder="Flow body" ng-model="newFlow.body"></textarea>
 
-  <label for="flow.input">Who do you want an update from?</label>
-  <div ng-repeat="input in inputs">
-    <input id="flow.input" placeholder="Name" ng-model="input.name" type="text">
-    <input placeholder="Email" ng-model="input.email" type="email">
-  </div>
-  <button class="btn-light" ng-click="addInput()"><i class="oi oi-r" data-glyph="plus"></i>Add another input</button>
+    <label for="flow.input">Who do you want an update from?</label>
+    <div ng-repeat="input in inputs">
+      <input id="flow.input" placeholder="Name" ng-model="input.name" type="text">
+      <input placeholder="Email" ng-model="input.email" type="email">
+    </div>
+    <button class="btn-light" ng-click="addInput()"><i class="oi oi-r" data-glyph="plus"></i>Add another input</button>
 
-  <label for="flow.reqDay">Request an update every</label>
-  <select for="flow.reqDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="newFlow.requestDay">
-    <option style="display:none" value="">Select a day</option>
-  </select>
+    <label for="flow.reqDay">Request an update every</label>
+    <select for="flow.reqDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="newFlow.requestDay">
+      <option style="display:none" value="">Select a day</option>
+    </select>
 
-  <label for="flow.output">Who do you want the compiled report sent to?</label>
-  <input id="flow.output" placeholder="Output" ng-model="newFlow.output" type="email">
+    <label for="flow.output">Who do you want the compiled report sent to?</label>
+    <input id="flow.output" placeholder="Output" ng-model="newFlow.output" type="email">
 
-  <label for="flow.postDay">Send the compiled updates to me every</label>
-  <select for="flow.postDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="newFlow.postDay">
-    <option style="display:none" value="">Select a day</option>
-  </select>
+    <label for="flow.postDay">Send the compiled updates to me every</label>
+    <select for="flow.postDay" ng-options="day.code as day.name for day in daysOfWeek" ng-model="newFlow.postDay">
+      <option style="display:none" value="">Select a day</option>
+    </select>
 
-  <button class="btn-light" type="submit" ng-click="addFlow()"><i class="oi oi-r" data-glyph="plus"></i>Add flow</button>
-</form>
+    <button class="btn-light" type="submit" ng-click="addFlow()"><i class="oi oi-r" data-glyph="plus"></i>Add flow</button>
+  </form>
+</div>
 
 <div class="flow-labels">
   <div class="status-label">Status</div>

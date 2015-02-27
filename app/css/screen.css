@@ -832,12 +832,14 @@ ul {
   color: #999;
   height: 100vh;
   overflow-y: scroll;
-  padding: 20px;
+  padding: 0 20px;
   position: fixed;
   right: 0;
   top: 0;
   width: 400px;
   z-index: 10000; }
+  .add-flow form {
+    margin: 40px 0; }
 
 .add-flow label,
 .add-flow input {
@@ -893,6 +895,9 @@ ul {
       color: #999;
       margin: 10px;
       padding: 20px; }
+      .flows li form div input {
+        display: inline-block;
+        width: 200px; }
       .flows li form label,
       .flows li form input {
         display: block; }

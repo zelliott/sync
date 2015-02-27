@@ -49,12 +49,16 @@
   color: #999;
   height: 100vh;
   overflow-y: scroll;
-  padding: 20px;
+  padding: 0 20px;
   position: fixed;
   right: 0;
   top: 0;
   width: 400px;
   z-index: 10000;
+
+  form {
+    margin: 40px 0;
+  }
 }
 
 .add-flow {
@@ -146,6 +150,14 @@
       color: #999;
       margin:10px;
       padding: 20px;
+
+      div {
+
+        input {
+          display: inline-block;
+          width: 200px;
+        }
+      }
 
       label,
       input {

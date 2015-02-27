@@ -81,7 +81,7 @@ var message = {
 };
 
 // Every day build the daily queue of emails to send
-var sched = later.parse.text('every 1 second');
+var sched = later.parse.text('every 1 day');
 var execute = later.setInterval(executeFlows, sched);
 
 function executeFlows() {
@@ -93,7 +93,7 @@ function executeFlows() {
       var d = data.val();
 
       // If the status of this flow is on
-      if(d.status === 1) {
+      if(d.status === 1 && d.requestDay === moment().day()) {
 
         // Modify input array
         for(var input in d.input) {
