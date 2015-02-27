@@ -793,6 +793,11 @@ ul {
       padding: 10px 0; }
       .menu li a:hover {
         color: #333; }
+      .menu li a:focus {
+        outline: none; }
+    .menu li .active {
+      color: #333;
+      font-weight: 600; }
 
 .flow-header {
   position: relative; }
@@ -818,6 +823,8 @@ ul {
     width: 50px; }
   .flow-labels .name-label {
     width: 25%; }
+  .flow-labels .sched-label {
+    width: 120px; }
 
 .add-flow {
   background: #222;
@@ -838,7 +845,8 @@ ul {
 .add-flow div input {
   display: inline-block;
   width: 138px; }
-.add-flow input {
+.add-flow input,
+.add-flow textarea {
   margin-bottom: 4px;
   width: 300px; }
 .add-flow button {
@@ -871,12 +879,15 @@ ul {
         width: 50px; }
       .flows li .info .flow-status.on {
         color: #4AB67C !important; }
+      .flows li .info .last-sent,
+      .flows li .info .days-to-next {
+        width: 120px; }
       .flows li .info .flow-btns {
         margin: 0;
         position: absolute;
         right: 0px; }
         .flows li .info .flow-btns button {
-          color: #999; }
+          color: #fff; }
     .flows li form {
       background: #222;
       color: #999;
@@ -885,7 +896,8 @@ ul {
       .flows li form label,
       .flows li form input {
         display: block; }
-      .flows li form input {
+      .flows li form input,
+      .flows li form textarea {
         margin-bottom: 4px;
         width: 300px; }
       .flows li form button {
@@ -919,7 +931,8 @@ button {
 
 input[type=text],
 input[type=email],
-input[type=number] {
+input[type=number],
+textarea {
   background: #444;
   border-radius: 2px;
   -moz-border-radius: 2px;
@@ -932,11 +945,13 @@ input[type=number] {
   padding: 10px; }
   input[type=text]:hover,
   input[type=email]:hover,
-  input[type=number]:hover {
+  input[type=number]:hover,
+  textarea:hover {
     background: #666; }
   input[type=text]:focus,
   input[type=email]:focus,
-  input[type=number]:focus {
+  input[type=number]:focus,
+  textarea:focus {
     background: #eee;
     color: #333;
     outline: none; }

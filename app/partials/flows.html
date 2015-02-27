@@ -9,6 +9,9 @@
   <label for="flow.name">Name this flow</label>
   <input id="flow.name" placeholder="Flow name" ng-model="newFlow.name" type="text">
 
+  <label for="flow.body">What's the content of your message?</label>
+  <textarea id="flow.body" placeholder="Flow body" ng-model="newFlow.body"></textarea>
+
   <label for="flow.input">Who do you want an update from?</label>
   <div ng-repeat="input in inputs">
     <input id="flow.input" placeholder="Name" ng-model="input.name" type="text">
@@ -35,8 +38,8 @@
 <div class="flow-labels">
   <div class="status-label">Status</div>
   <div class="name-label">Name<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
-  <div>Last Sent<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
-  <div>Days To Next<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
+  <div class="sched-label">Last Sent<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
+  <div class="sched-label">Days To Next<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
   <div>Response %<i class="oi oi-l" data-glyph='caret-bottom'></i></div>
 </div>
 
@@ -48,8 +51,8 @@
         <i class="oi oi-r" data-glyph="media-record"></i>
       </div>
       <div class="flow-name">{{flow.name}}</div>
-      <div class="last-sent">{{daysOfWeekArray[flow.last_sent]}}</div>
-      <div class="days-to-next"></div>
+      <div class="last-sent">{{calcLastSent(flow)}}</div>
+      <div class="days-to-next">{{calcDaysToNext(flow)}}</div>
       <div class="flow-btns">
         <button class="btn-link" ng-click="editFlow(flow, $index)" ng-hide="showEditForm[$index]">
           <i class="oi oi-r" data-glyph="pencil"></i>
@@ -65,6 +68,9 @@
       <h4>Edit Flow</h4>
       <label for="flow.editName">Rename this flow</label>
       <input id="flow.editName" value="{{flow.name}}" ng-model="flow.name" type="text">
+
+      <label for="flow.editBody">Change the content of your message</label>
+      <textarea id="flow.editBody" value="{{flow.body}}" ng-model="flow.body"></textarea>
 
       <label for="flow.editInput">Change who you want an update from</label>
       <div ng-repeat="input in flow.input">

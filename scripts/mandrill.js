@@ -81,18 +81,18 @@ var message = {
 };
 
 // Every day build the daily queue of emails to send
-var sched = later.parse.text('every 5 seconds');
+var sched = later.parse.text('every 1 second');
 var execute = later.setInterval(executeFlows, sched);
 
 function executeFlows() {
-  var email_count = 0;
 
-  ref.on('value', function(snapshot) {
+  ref.once('value', function(snapshot) {
     snapshot.forEach(function(data) {
 
       // Grab flow data
       var d = data.val();
 
+      // If the status of this flow is on
       if(d.status === 1) {
 
         // Modify input array
@@ -102,6 +102,7 @@ function executeFlows() {
 
         // Set message data
         message.subject = d.name;
+        message.text = d.body;
         message.from_email = d.output;
         message.from_name = d.output;
         message.to = d.input;
@@ -109,9 +110,6 @@ function executeFlows() {
         // Send message
         sendMessage(data);
         console.log(data.key());
-
-        // Count emails sent
-        email_count++;
       }
     });
   }, function (errorObject) {
@@ -123,7 +121,7 @@ var sendMessage = function (data) {
   mandrill_client.messages.send({'message': message, 'async': false, 'ip_pool': 'Main Pool'}, function(result) {
 
     // On success
-    ref.child(data.key() + '/last_sent').set(moment().day());
+    ref.child(data.key() + '/last_sent').set(moment().format());
     ref.child(data.key() + '/total_sent').set(data.val().total_sent + 1);
 
   }, function(e) {

@@ -9,22 +9,24 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     $scope.FBURL = FBURL;
   }])
 
-  .controller('ChatCtrl', ['$scope', 'messageList', function($scope, messageList) {
-    $scope.messages = messageList;
-    $scope.addMessage = function(newMessage) {
-      if( newMessage ) {
-        $scope.messages.$add({text: newMessage});
+  .controller('MenuCtrl', ['$scope', '$location', function($scope, $location) {
+
+    $scope.setActive = function(path) {
+      if ($location.path().substr(0, path.length) === path) {
+        return "active"
+      } else {
+        return ""
       }
-    };
+    }
   }])
 
   .controller('FlowsCtrl', ['$scope', 'flowList', 'user', function($scope, flowList, user) {
 
     // Store scopes
     $scope.newFlow = {
-      last_sent: 7,
       total_sent: 0,
-      status: 1
+      status: 1,
+      last_sent: ''
     };
     $scope.user = user;
     $scope.flows = flowList;
@@ -39,7 +41,18 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
       { code: 5, name: 'Friday' },
       { code: 6, name: 'Saturday' },
     ];
-    $scope.daysOfWeekArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    $scope.calcLastSent = function (flow) {
+      if(flow.last_sent === '') {
+        return 'N/A';
+      } else {
+        return moment(flow.last_sent).format('ddd, MMM Do');
+      }
+    };
+
+    $scope.calcDaysToNext = function (flow) {
+      return moment().day(flow.requestDay + 7).diff(moment(), 'days');
+    };
 
     // Track multiple inputs
     $scope.inputs = [{ email: '' }];

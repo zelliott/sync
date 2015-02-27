@@ -37,6 +37,10 @@
   .name-label {
     width: 25%;
   }
+
+  .sched-label {
+    width: 120px;
+  }
 }
 
 .add-flow {
@@ -68,7 +72,8 @@
     }
   }
 
-  input {
+  input,
+  textarea {
     margin-bottom: 4px;
     width: 300px;
   }
@@ -120,13 +125,18 @@
         color: $green !important;
       }
 
+      .last-sent,
+      .days-to-next {
+        width: 120px;
+      }
+
       .flow-btns {
         margin: 0;
         position: absolute;
         right: 0px;
 
         button {
-          color: #999;
+          color: #fff;
         }
       }
     }
@@ -142,7 +152,8 @@
         display: block;
       }
 
-      input {
+      input,
+      textarea {
         margin-bottom: 4px;
         width: 300px;
       }
