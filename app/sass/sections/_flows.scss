@@ -68,11 +68,23 @@
     display: block;
   }
 
-  div {
+  form > div {
 
     input {
       display: inline-block;
       width: 138px;
+    }
+
+    .delete-input {
+      color: #666;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 10px;
+      padding: 10px;
+
+      &:hover {
+        color: #999;
+      }
     }
   }
 
@@ -156,6 +168,18 @@
         input {
           display: inline-block;
           width: 200px;
+        }
+
+        .delete-input {
+          color: #666;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 10px;
+          padding: 10px;
+
+          &:hover {
+            color: #999;
+          }
         }
       }
 

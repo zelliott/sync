@@ -17,6 +17,9 @@
     <div ng-repeat="input in inputs">
       <input id="flow.input" placeholder="Name" ng-model="input.name" type="text">
       <input placeholder="Email" ng-model="input.email" type="email">
+      <div class="delete-input" ng-click="removeInput(input)">
+        <i class="oi" data-glyph="x"></i>
+      </div>
     </div>
     <button class="btn-light" ng-click="addInput()"><i class="oi oi-r" data-glyph="plus"></i>Add another input</button>
 
@@ -78,6 +81,9 @@
       <div ng-repeat="input in flow.input">
         <input id="flow.editInput" value="{{input.name}}" ng-model="input.name" type="text">
         <input placeholder="Email" value="{{input.email}}" ng-model="input.email" type="email">
+        <div class="delete-input">
+          <i class="oi" data-glyph="x"></i>
+        </div>
       </div>
       <button class="btn-light"><i class="oi oi-r" data-glyph="plus"></i>Add another input</button>
 

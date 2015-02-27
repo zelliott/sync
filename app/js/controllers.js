@@ -60,6 +60,10 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
       $scope.inputs.push({ email: '' });
     };
 
+    $scope.removeInput = function(input) {
+      $scope.inputs.splice($scope.inputs.indexOf(input), 1);
+    }
+
     // Add a flow
     $scope.addFlow = function() {
       $scope.newFlow.author = $scope.user.uid;

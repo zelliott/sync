@@ -844,9 +844,17 @@ ul {
 .add-flow label,
 .add-flow input {
   display: block; }
-.add-flow div input {
+.add-flow form > div input {
   display: inline-block;
   width: 138px; }
+.add-flow form > div .delete-input {
+  color: #666;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 10px;
+  padding: 10px; }
+  .add-flow form > div .delete-input:hover {
+    color: #999; }
 .add-flow input,
 .add-flow textarea {
   margin-bottom: 4px;
@@ -898,6 +906,14 @@ ul {
       .flows li form div input {
         display: inline-block;
         width: 200px; }
+      .flows li form div .delete-input {
+        color: #666;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 10px;
+        padding: 10px; }
+        .flows li form div .delete-input:hover {
+          color: #999; }
       .flows li form label,
       .flows li form input {
         display: block; }
