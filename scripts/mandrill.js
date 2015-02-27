@@ -92,7 +92,7 @@ function executeFlows() {
       // Grab flow data
       var d = data.val();
 
-      // If the status of this flow is on
+      // If this flow isn't paused
       if(d.status === 1 && d.requestDay === moment().day()) {
 
         // Modify input array
