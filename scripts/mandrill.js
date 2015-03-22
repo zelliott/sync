@@ -8,7 +8,8 @@ var mandrill = require('mandrill-api/mandrill'),
 var ref = new Firebase('https://intense-heat-8637.firebaseio.com/flows');
 
 // Mandril
-var mandrill_client = new mandrill.Mandrill('MhYflar4NJx7K24Bpri_3A');
+var mandrill_key = 'MhYflar4NJx7K24Bpri_3A';
+var mandrill_client = new mandrill.Mandrill(mandrill_key);
 var message = {
   // 'html': '<p>Example HTML content</p>',
   'text': 'Example text content',
@@ -22,12 +23,11 @@ var message = {
   }],
   'headers': {
     'Reply-To': 'message.reply@example.com'
-  }
+  },
 
-  // },
   // 'important': false,
-  // 'track_opens': null,
-  // 'track_clicks': null,
+  'track_opens': true,
+  'track_clicks': true
   // 'auto_text': null,
   // 'auto_html': null,
   // 'inline_css': null,
@@ -80,8 +80,8 @@ var message = {
   // }]
 };
 
-// Every day build the daily queue of emails to send
-var sched = later.parse.text('every 1 day');
+// Run executeFlows() once per day
+var sched = later.parse.text('every 1 second');
 var execute = later.setInterval(executeFlows, sched);
 
 function executeFlows() {
@@ -92,9 +92,11 @@ function executeFlows() {
       // Grab flow data
       var d = data.val();
 
-      // If this flow isn't paused
-      
-      if(d.status === 1 && d.requestDay === moment().day()) {
+      // Conditions to test before executing a flow
+      var flow_is_on = d.status === 1,
+          day_is_current = d.requestDay === moment().day();
+
+      if(flow_is_on && day_is_current) {
 
         // Modify input array
         for(var input in d.input) {
@@ -122,6 +124,7 @@ var sendMessage = function (data) {
   mandrill_client.messages.send({'message': message, 'async': false, 'ip_pool': 'Main Pool'}, function(result) {
 
     // On success
+    ref.child(data.key() + '/stack').push(message);
     ref.child(data.key() + '/last_sent').set(moment().format());
     ref.child(data.key() + '/total_sent').set(data.val().total_sent + 1);
 

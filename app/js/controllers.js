@@ -139,6 +139,12 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     };
   }])
 
+  .controller('FlowCtrl', ['$scope', '$routeParams', 'flow', 'user', function($scope, $routeParams, flow, user) {
+    
+    $scope.flow = flow;
+
+  }])
+
   .controller('LoginCtrl', ['$scope', 'simpleLogin', '$location', function($scope, simpleLogin, $location) {
     $scope.email = null;
     $scope.pass = null;

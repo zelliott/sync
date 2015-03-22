@@ -16,6 +16,13 @@
        return fbutil.syncArray('flows', {limit: 10});
      }])
 
+     .factory('flow', ['fbutil', '$routeParams', function(fbutil, $routeParams) {
+       var flowList = fbutil.syncArray('flows', {limit: 10})
+       console.log($routeParams.flowId);
+       console.log(flowList.$getRecord($routeParams.flowId));
+       return flowList.$getRecord($routeParams.flowId);
+     }])
+
      .factory('mandrill', function() {
        return {
          initMandrill: function() {

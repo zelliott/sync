@@ -30,6 +30,16 @@ angular.module('myApp.routes', ['ngRoute', 'simpleLogin'])
         }]
       }
     },
+    '/flows/:flowId': {
+      templateUrl: 'partials/flow.html',
+      controller: 'FlowCtrl',
+      authRequired: true,
+      resolve: {
+        user: ['simpleLogin', function(simpleLogin) {
+          return simpleLogin.getUser();
+        }]
+      }
+    },
     '/login': {
       templateUrl: 'partials/login.html',
       controller: 'LoginCtrl'

@@ -55,7 +55,7 @@
       <div class="flow-status" ng-class="{on: flow.status===1}" ng-click="toggleStatus(flow)">
         <i class="oi oi-r" data-glyph="media-record"></i>
       </div>
-      <div class="flow-name">{{flow.name}}</div>
+      <div class="flow-name"><a ng-href="/app/#/flows/{{flow.$id}}">{{flow.name}}</a></div>
       <div class="last-sent">{{calcLastSent(flow)}}</div>
       <div class="days-to-next">{{calcDaysToNext(flow)}}</div>
       <div class="flow-btns">
