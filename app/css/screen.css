@@ -729,6 +729,9 @@
 .pull-right {
   float: right; }
 
+.gray {
+  color: #ccc; }
+
 body {
   font: 15px Helvetica Neue;
   color: #333;
@@ -783,7 +786,7 @@ ul {
 .menu {
   font-size: 14px;
   display: inline-block;
-  margin: 30px auto 0 auto;
+  margin: 50px auto 0 auto;
   padding: 20px;
   width: 100px; }
   .menu li {
@@ -801,9 +804,14 @@ ul {
       font-weight: 600; }
 
 .flow-header {
+  margin-bottom: 20px;
   position: relative; }
   .flow-header h3 {
     display: inline-block; }
+    .flow-header h3 a {
+      color: #00A1DC; }
+    .flow-header h3 .oi {
+      font-size: 16px; }
   .flow-header button .oi {
     font-size: 16px !important; }
 
@@ -925,6 +933,30 @@ ul {
       .flows li form button {
         display: block;
         margin-top: 20px; }
+
+.flow-tabs {
+  border-bottom: 2px solid #ddd; }
+  .flow-tabs > div {
+    color: #999;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: -2px;
+    padding: 10px;
+    vertical-align: top; }
+    .flow-tabs > div:hover {
+      color: #333; }
+    .flow-tabs > div .oi-l {
+      font-size: 10px; }
+    .flow-tabs > div .oi-r {
+      font-size: 13px; }
+  .flow-tabs .active-tab {
+    background: #ccc;
+    border-bottom: 2px solid #ccc;
+    color: #fff;
+    font-weight: 600; }
+    .flow-tabs .active-tab:hover {
+      color: #fff; }
 
 .login {
   margin: 30px 0 0 100px; }

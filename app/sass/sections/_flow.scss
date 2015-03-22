@@ -1,0 +1,36 @@
+.flow-tabs {
+  border-bottom: 2px solid #ddd;
+
+  > div {
+    color: #999;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: -2px;
+    padding: 10px;
+    vertical-align: top;
+
+    &:hover {
+      color: #333;
+    }
+
+    .oi-l {
+      font-size: 10px;
+    }
+
+    .oi-r {
+      font-size: 13px;
+    }
+  }
+
+  .active-tab {
+    background: #ccc;
+    border-bottom: 2px solid #ccc;
+    color: #fff;
+    font-weight: 600;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

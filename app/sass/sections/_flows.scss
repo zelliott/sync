@@ -1,8 +1,17 @@
 .flow-header {
+  margin-bottom: 20px;
   position: relative;
 
   h3 {
     display: inline-block;
+
+    a {
+      color: $blue;
+    }
+
+    .oi {
+      font-size: 16px;
+    }
   }
 
   button .oi {
