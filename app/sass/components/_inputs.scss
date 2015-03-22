@@ -1,22 +1,52 @@
-input[type=text],
-input[type=email],
-input[type=number],
-textarea {
-  background: #444;
-  @include border-radius(2px);
-  border: none;
-  color: #ccc;
-  font-size: 13px;
-  font-weight: 500;
-  padding: 10px;
+form.dark {
+  input[type=text],
+  input[type=email],
+  input[type=number],
+  input[type=password],
+  textarea {
 
-  &:hover {
-    background: #666;
+    background: #444;
+    @include border-radius(2px);
+    border: none;
+    color: #ccc;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px;
+
+    &:hover {
+      background: #666;
+    }
+
+    &:focus {
+      background: #eee;
+      color: #333;
+      outline: none;
+    }
   }
+}
 
-  &:focus {
+form.light {
+  input[type=text],
+  input[type=email],
+  input[type=number],
+  input[type=password],
+  textarea {
+
     background: #eee;
+    @include border-radius(2px);
+    border: none;
     color: #333;
-    outline: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px;
+
+    &:hover {
+      background: #e6e6e6;
+    }
+
+    &:focus {
+      background: #ddd;
+      outline: none;
+    }
   }
 }

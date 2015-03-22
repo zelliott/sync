@@ -1,24 +1,20 @@
+<div class="login">
+  <div class="logo">
+    <i class="oi oi-r" data-glyph="fork"></i>Flow
+  </div>
+  <form class="light">
+      <label for="email">Email</label>
+      <input id="email" type="text" ng-model="email" />
+      <label for="password">Password</label>
+      <input id="password" type="password" ng-model="pass" />
+      <label id="confirm-password" ng-cloak ng-show="createMode">Confirm Password</label>
+      <input id="confirm-password" type="password" ng-model="confirm" ng-cloak ng-show="createMode"/>
 
-<h2>Login Page</h2>
+      <button class="btn-dark" ng-click="login(email, pass)" ng-hide="createMode"><i class="oi oi-r" data-glyph="key"></i>Login</button>
+      <button class="btn-text" ng-click="createMode = true" ng-hide="createMode">Register</button>
+      <button class="btn-dark" ng-cloak ng-show="createMode" ng-click="createAccount()">Create Account</button>
+      <button class="btn-text" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
 
-<form>
-    <label>
-        <span>email</span>
-        <input type="text" ng-model="email" />
-    </label>
-    <label>
-        <span>password</span>
-        <input type="password" ng-model="pass" />
-    </label>
-    <label ng-cloak ng-show="createMode">
-        <span>confirm pass</span>
-        <input type="password" ng-model="confirm" />
-    </label>
-    <button ng-click="login(email, pass)" ng-hide="createMode">Log In</button>
-    <button ng-click="createMode = true" ng-hide="createMode">Register</button>
-    <button ng-cloak ng-show="createMode" ng-click="createAccount()">Create Account</button>
-    <button ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
-
-    <p ng-show="err" class="error">{{err}}</p>
-</form>
-
+      <p ng-show="err" class="error">{{err}}</p>
+  </form>
+</div>

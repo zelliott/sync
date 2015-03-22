@@ -30,6 +30,20 @@ button {
   }
 }
 
+.btn-text {
+  color: #999;
+  font-weight: 500 !important;
+  font-size: 14px;
+
+  &:hover {
+    color: #333;
+  }
+
+  &:focus {
+
+  }
+}
+
 .btn-light {
   background: #ccc;
   @include border-radius(2px);
@@ -40,5 +54,19 @@ button {
 
   &:focus {
     background: #fff;
+  }
+}
+
+.btn-dark {
+  background: #333;
+  color: #eee;
+  @include border-radius(2px);
+
+  &:hover {
+    background: #222;
+  }
+
+  &:focus {
+    background: #000;
   }
 }

@@ -1,6 +1,17 @@
-form {
-  
+form.dark {
+
   label {
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 30px;
+    padding: 0 0 10px 0;
+  }
+}
+
+form.light {
+
+  label {
+    color: #999;
     font-weight: 500;
     font-size: 13px;
     margin-top: 30px;

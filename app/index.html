@@ -14,12 +14,11 @@
 <body ng-cloak>
 
   <div class="container">
-    <ul class="menu" ng-controller="MenuCtrl">
+    <ul class="menu" ng-controller="MenuCtrl" ng-show-auth>
       <li><a href="#/home" ng-class="setActive('/home')">Dashboard</a></li>
       <!--<li><a href="#/chat">chat</a></li>-->
       <li><a href="#/flows" ng-class="setActive('/flows')">Flows</a></li>
-      <li ng-hide-auth><a href="#/login" ng-class="setActive('/login')">Login</a></li>
-      <li ng-show-auth><a href="#/account" ng-class="setActive('/account')">Account</a></li>
+      <li><a href="#/account" ng-class="setActive('/account')">Account</a></li>
     </ul>
 
     <div ng-view></div>

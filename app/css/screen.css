@@ -925,6 +925,56 @@ ul {
         display: block;
         margin-top: 20px; }
 
+.login {
+  margin: 30px 0 0 100px; }
+  .login .logo {
+    color: #333;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center; }
+    .login .logo .oi {
+      font-size: 24px; }
+  .login form {
+    margin: 0 auto;
+    width: 200px; }
+    .login form label,
+    .login form input {
+      display: block;
+      width: 180px; }
+    .login form .btn-dark {
+      display: block;
+      margin-top: 30px;
+      padding: 10px 20px; }
+    .login form .btn-text {
+      display: block;
+      margin: 30px auto 0 auto; }
+    .login form .error {
+      color: #EC5C51;
+      font-size: 13px; }
+
+form.account-form {
+  display: inline-block;
+  width: 280px;
+  vertical-align: top; }
+  form.account-form fieldset {
+    margin-top: 10px; }
+    form.account-form fieldset legend {
+      color: #999;
+      font-size: 17px; }
+    form.account-form fieldset span {
+      font-size: 13px; }
+  form.account-form label,
+  form.account-form input {
+    display: block; }
+  form.account-form button {
+    margin-top: 20px; }
+
+.account-bottom {
+  border-top: 1px dotted #ddd;
+  display: block;
+  margin-top: 60px;
+  padding-top: 60px; }
+
 button {
   background: transparent;
   border: none;
@@ -939,6 +989,13 @@ button {
   button i {
     font-size: 10px; }
 
+.btn-text {
+  color: #999;
+  font-weight: 500 !important;
+  font-size: 14px; }
+  .btn-text:hover {
+    color: #333; }
+
 .btn-light {
   background: #ccc;
   border-radius: 2px;
@@ -950,10 +1007,23 @@ button {
   .btn-light:focus {
     background: #fff; }
 
-input[type=text],
-input[type=email],
-input[type=number],
-textarea {
+.btn-dark {
+  background: #333;
+  color: #eee;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background-clip: padding-box; }
+  .btn-dark:hover {
+    background: #222; }
+  .btn-dark:focus {
+    background: #000; }
+
+form.dark input[type=text],
+form.dark input[type=email],
+form.dark input[type=number],
+form.dark input[type=password],
+form.dark textarea {
   background: #444;
   border-radius: 2px;
   -moz-border-radius: 2px;
@@ -964,20 +1034,58 @@ textarea {
   font-size: 13px;
   font-weight: 500;
   padding: 10px; }
-  input[type=text]:hover,
-  input[type=email]:hover,
-  input[type=number]:hover,
-  textarea:hover {
+  form.dark input[type=text]:hover,
+  form.dark input[type=email]:hover,
+  form.dark input[type=number]:hover,
+  form.dark input[type=password]:hover,
+  form.dark textarea:hover {
     background: #666; }
-  input[type=text]:focus,
-  input[type=email]:focus,
-  input[type=number]:focus,
-  textarea:focus {
+  form.dark input[type=text]:focus,
+  form.dark input[type=email]:focus,
+  form.dark input[type=number]:focus,
+  form.dark input[type=password]:focus,
+  form.dark textarea:focus {
     background: #eee;
     color: #333;
     outline: none; }
 
-form label {
+form.light input[type=text],
+form.light input[type=email],
+form.light input[type=number],
+form.light input[type=password],
+form.light textarea {
+  background: #eee;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background-clip: padding-box;
+  border: none;
+  color: #333;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px; }
+  form.light input[type=text]:hover,
+  form.light input[type=email]:hover,
+  form.light input[type=number]:hover,
+  form.light input[type=password]:hover,
+  form.light textarea:hover {
+    background: #e6e6e6; }
+  form.light input[type=text]:focus,
+  form.light input[type=email]:focus,
+  form.light input[type=number]:focus,
+  form.light input[type=password]:focus,
+  form.light textarea:focus {
+    background: #ddd;
+    outline: none; }
+
+form.dark label {
+  font-weight: 500;
+  font-size: 13px;
+  margin-top: 30px;
+  padding: 0 0 10px 0; }
+
+form.light label {
+  color: #999;
   font-weight: 500;
   font-size: 13px;
   margin-top: 30px;

@@ -5,7 +5,7 @@
 </div>
 
 <div ng-show="showForm" class="add-flow">
-  <form>
+  <form class="dark">
     <h4>Add a new flow</h4>
     <label for="flow.name">Name this flow</label>
     <input id="flow.name" placeholder="Flow name" ng-model="newFlow.name" type="text">
@@ -65,11 +65,11 @@
         <button class="btn-link" ng-click="editFlow(flow, $index)" ng-show="showEditForm[$index]">
           <i class="oi oi-r" data-glyph="ban"></i>
         </button>
-        <button class="btn-link" ng-click="removeFlow(key)"><i class="oi oi-r" data-glyph="x"></i></button>
+        <button class="btn-link" ng-click="removeFlow(flow)"><i class="oi oi-r" data-glyph="x"></i></button>
       </div>
     </div>
 
-    <form ng-hide="!showEditForm[$index]">
+    <form ng-hide="!showEditForm[$index]" class="dark">
       <h4>Edit Flow</h4>
       <label for="flow.editName">Rename this flow</label>
       <input id="flow.editName" value="{{flow.name}}" ng-model="flow.name" type="text">
@@ -79,7 +79,7 @@
 
       <label for="flow.editInput">Change who you want an update from</label>
       <div ng-repeat="input in flow.input">
-        <input id="flow.editInput" value="{{input.name}}" ng-model="input.name" type="text">
+        <input id="flow.editInput" placeholder="Name" value="{{input.name}}" ng-model="input.name" type="text">
         <input placeholder="Email" value="{{input.email}}" ng-model="input.email" type="email">
         <div class="delete-input">
           <i class="oi" data-glyph="x"></i>

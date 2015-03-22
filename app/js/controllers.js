@@ -46,16 +46,28 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
       if(flow.last_sent === '') {
         return 'N/A';
       } else {
-        return moment(flow.last_sent).format('ddd, MMM Do');
+        return moment(flow.last_sent).format('M/D');
       }
     };
 
     $scope.calcDaysToNext = function (flow) {
-      return moment().day(flow.requestDay + 7).diff(moment(), 'days');
+      if(flow.requestDay === undefined) {
+        return 'N/A';
+      } else {
+        var val;
+        if (flow.requestDay <= moment().day()) {
+          val = 7 + flow.requestDay - moment().day();
+          return val + ' days (' + moment().add(val, 'days').format('M/D') + ')';
+        } else {
+          val = flow.requestDay - moment().day();
+          return val + ' days (' + moment().add(val, 'days').format('M/D') + ')';
+        }
+      }
     };
 
     // Track multiple inputs
     $scope.inputs = [{ email: '' }];
+
     $scope.addInput = function() {
       $scope.inputs.push({ email: '' });
     };
@@ -73,7 +85,11 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
         $scope.flows.$add($scope.newFlow);
 
         // Reset objects
-        $scope.newFlow = {};
+        $scope.newFlow = {
+          total_sent: 0,
+          status: 1,
+          last_sent: ''
+        };
         $scope.inputs = [{ name:'', email: '' }];
       }
       $scope.showForm = false;
@@ -81,6 +97,7 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
 
     // Edit a flow
     $scope.showEditForm = {};
+
     $scope.editFlow = function(flow, $index) {
       if($scope.showEditForm[$index] === true) {
         $scope.showEditForm[$index] = false;
@@ -108,8 +125,11 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     }
 
     // Remove a flow
-    $scope.removeFlow = function(key) {
-      $scope.flows.$remove(key);
+    $scope.removeFlow = function(flow) {
+      var result = window.confirm("Are you sure you want to remove this flow?  It cannot be recovered.");
+      if(result === true) {
+        $scope.flows.$remove(flow);
+      }
     };
 
     // Show add flow form

@@ -1,67 +1,54 @@
+<h3>Account</h3>
 
-<h2>Account</h2>
-
-<form>
+<form class="light account-form">
     <fieldset>
         <legend>Profile</legend>
 
-        <label>
-            <span>Name:</span>
-            <input type="text" name="name" ng-model="profile.name"/>
-        </label>
+        <label>Name</label>
+        <input type="text" name="name" ng-model="profile.name"/>
 
-        <label>
-            <span>Email:</span>
-            <br />{{profile.email}}
-        </label>
+        <label>Email</label>
+        <span>{{profile.email}}</span>
     </fieldset>
 </form>
 
-<form>
+<form class="light account-form">
     <fieldset>
-        <legend>Change Password</legend>
+        <legend>Change password</legend>
 
-        <label>
-            <span>Old Password:</span>
-            <input type="password" ng-keypress="clear()" ng-model="oldpass"/>
-        </label>
+        <label>Old password</label>
+        <input type="password" ng-keypress="clear()" ng-model="oldpass"/>
 
-        <label>
-            <span>New Password:</span>
-            <input type="password" ng-keypress="clear()" ng-model="newpass"/>
-        </label>
+        <label>New password</label>
+        <input type="password" ng-keypress="clear()" ng-model="newpass"/>
 
-        <label>
-            <span>Confirm New Password:</span>
-            <input type="password" ng-keypress="clear()" ng-model="confirm"/>
-        </label>
+        <label>Confirm new password</label>
+        <input type="password" ng-keypress="clear()" ng-model="confirm"/>
 
-        <button ng-click="changePassword(oldpass, newpass, confirm)">change password</button>
+        <button class="btn-dark" ng-click="changePassword(oldpass, newpass, confirm)">Change password</button>
 
         <p class="error" ng-show="err">{{err}}</p>
         <p class="good" ng-show="msg">{{msg}}</p>
     </fieldset>
 </form>
 
-<form>
+<form class="light account-form">
     <fieldset>
-        <legend>Change Email</legend>
+        <legend>Change email</legend>
 
-        <label>
-            <span>New Email:</span>
-            <input type="text" ng-keypress="clear()" ng-model="newEmail"/>
-        </label>
+        <label>New email</label>
+        <input type="text" ng-keypress="clear()" ng-model="newEmail"/>
 
-        <label>
-            <span>Password:</span>
-            <input type="password" ng-keypress="clear()" ng-model="pass"/>
-        </label>
+        <label>Password</label>
+        <input type="password" ng-keypress="clear()" ng-model="pass"/>
 
-        <button ng-click="changeEmail(pass, newEmail)">update email</button>
+        <button class="btn-dark" ng-click="changeEmail(pass, newEmail)">Update email</button>
 
         <p class="error" ng-show="emailerr">{{emailerr}}</p>
         <p class="good" ng-show="emailmsg">{{emailmsg}}</p>
     </fieldset>
 </form>
 
-<button ng-click="logout()">Log Out</button>
+<div class="account-bottom">
+  <button ng-click="logout()" class="btn-dark">Logout</button>
+</div>
