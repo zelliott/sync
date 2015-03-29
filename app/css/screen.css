@@ -810,6 +810,8 @@ ul {
     display: inline-block; }
     .flow-header h3 a {
       color: #00A1DC; }
+      .flow-header h3 a:hover {
+        color: #007ca9; }
     .flow-header h3 .oi {
       font-size: 16px; }
   .flow-header button .oi {
@@ -935,8 +937,8 @@ ul {
         margin-top: 20px; }
 
 .flow-tabs {
-  border-bottom: 2px solid #ddd; }
-  .flow-tabs > div {
+  border-bottom: 1px solid #ddd; }
+  .flow-tabs > a {
     color: #999;
     cursor: pointer;
     display: inline-block;
@@ -944,11 +946,11 @@ ul {
     margin-bottom: -2px;
     padding: 10px;
     vertical-align: top; }
-    .flow-tabs > div:hover {
+    .flow-tabs > a:hover {
       color: #333; }
-    .flow-tabs > div .oi-l {
+    .flow-tabs > a .oi-l {
       font-size: 10px; }
-    .flow-tabs > div .oi-r {
+    .flow-tabs > a .oi-r {
       font-size: 13px; }
   .flow-tabs .active-tab {
     background: #ccc;
@@ -957,6 +959,44 @@ ul {
     font-weight: 600; }
     .flow-tabs .active-tab:hover {
       color: #fff; }
+
+.summary-section {
+  border-top: 1px solid #ddd;
+  padding: 20px; }
+  .summary-section div {
+    display: inline-block;
+    margin-right: 80px;
+    text-align: right; }
+    .summary-section div .subtitle,
+    .summary-section div .data {
+      display: block; }
+    .summary-section div .subtitle {
+      margin-bottom: 10px; }
+    .summary-section div .data {
+      color: #333;
+      font-weight: 600; }
+
+.email-section li {
+  border-top: 1px solid #ddd;
+  display: block;
+  padding: 10px;
+  position: relative; }
+  .email-section li:hover {
+    background: #eee; }
+  .email-section li .info {
+    line-height: 36px; }
+    .email-section li .info > div {
+      display: inline-block;
+      margin-right: 20px;
+      vertical-align: top; }
+    .email-section li .info .email-date {
+      width: 100px; }
+    .email-section li .info .email-name {
+      width: 200px; }
+    .email-section li .info .email-read {
+      width: 100px; }
+    .email-section li .info .email-resp {
+      width: 100px; }
 
 .login {
   margin: 30px 0 0 100px; }

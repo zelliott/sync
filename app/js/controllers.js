@@ -139,9 +139,65 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     };
   }])
 
-  .controller('FlowCtrl', ['$scope', '$routeParams', 'flow', 'user', function($scope, $routeParams, flow, user) {
-    
+  .controller('FlowCtrl', ['$scope', '$routeParams', 'flow', 'user', '$location', function($scope, $routeParams, flow, user, $location) {
+
     $scope.flow = flow;
+
+    $scope.numToDay = function(num) {
+      return moment().day(num).format('ddd');
+    };
+
+    $scope.calcLastSent = function (flow) {
+      if(flow.last_sent === '') {
+        return 'N/A';
+      } else {
+        return moment(flow.last_sent).format('M/D');
+      }
+    };
+
+    $scope.calcDaysToNext = function (flow) {
+      if(flow.requestDay === undefined) {
+        return 'N/A';
+      } else {
+        var val;
+        if (flow.requestDay <= moment().day()) {
+          val = 7 + flow.requestDay - moment().day();
+          return val + ' days (' + moment().add(val, 'days').format('M/D') + ')';
+        } else {
+          val = flow.requestDay - moment().day();
+          return val + ' days (' + moment().add(val, 'days').format('M/D') + ')';
+        }
+      }
+    };
+
+    $scope.tabs = [
+      {
+        label: 'Summary',
+        icon: 'bar-chart',
+        url: 'summary'
+      },
+      {
+        label: 'Emails',
+        icon: 'inbox',
+        url: 'emails'
+      }
+    ];
+
+    $scope.checkHash = function(url) {
+      return url === $location.hash();
+    };
+
+    $scope.tabUrl = function(url) {
+      return '#' + $location.$$path + '#' + url;
+    };
+
+    $scope.formatEmailTimestamp = function(timestamp) {
+      if (timestamp === undefined) {
+        return 'N/A';
+      } else {
+        return moment(timestamp).format('M/D');
+      }
+    };
 
   }])
 

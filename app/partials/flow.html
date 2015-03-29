@@ -3,6 +3,39 @@
 </div>
 
 <div class="flow-tabs">
-  <div class="summary-tab active-tab"><i class="oi oi-r" data-glyph="bar-chart"></i>Summary</div>
-  <div class="emails-tab"><i class="oi oi-r" data-glyph="inbox"></i>Emails</div>
+  <a class="summary-tab" ng-href="{{tabUrl(tab.url)}}" ng-class="{'active-tab': checkHash(tab.url)}" ng-repeat="tab in tabs"><i class="oi oi-r" data-glyph="{{tab.icon}}"></i>{{tab.label}}</a>
 </div>
+
+<div class="summary-section" ng-show="checkHash('summary')">
+  <div>
+    <span class="subtitle">Subscribers</span>
+    <span class="data">{{flow.input.length}}</span>
+  </div>
+  <div>
+    <span class="subtitle">Sends every</span>
+    <span class="data">{{numToDay(flow.requestDay)}}</span>
+  </div>
+  <div>
+    <span class="subtitle">Last sent</span>
+    <span class="data">{{calcLastSent(flow)}}</span>
+  </div>
+  <div>
+    <span class="subtitle">To next</span>
+    <span class="data">{{calcDaysToNext(flow)}}</span>
+  </div>
+  <div>
+    <span class="subtitle">Total sent</span>
+    <span class="data">{{flow.total_sent}}</span>
+  </div>
+</div>
+
+<ul class="email-section" ng-show="checkHash('emails')">
+  <li ng-repeat="email in flow.stack">
+    <div class="info">
+      <div class="email-date">{{formatEmailTimestamp(email.timestamp)}}</div>
+      <div class="email-name">{{email.subject}}</div>
+      <div class="email-read">50% read</div>
+      <div class="email-resp">5 responses</div>
+    </div>
+  </li>
+</ul>

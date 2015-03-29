@@ -124,6 +124,8 @@ var sendMessage = function (data) {
   mandrill_client.messages.send({'message': message, 'async': false, 'ip_pool': 'Main Pool'}, function(result) {
 
     // On success
+    message.timestamp = moment().format();
+
     ref.child(data.key() + '/stack').push(message);
     ref.child(data.key() + '/last_sent').set(moment().format());
     ref.child(data.key() + '/total_sent').set(data.val().total_sent + 1);

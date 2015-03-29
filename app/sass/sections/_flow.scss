@@ -1,7 +1,7 @@
 .flow-tabs {
-  border-bottom: 2px solid #ddd;
+  border-bottom: 1px solid #ddd;
 
-  > div {
+  > a {
     color: #999;
     cursor: pointer;
     display: inline-block;
@@ -31,6 +31,59 @@
 
     &:hover {
       color: #fff;
+    }
+  }
+}
+
+.summary-section {
+  border-top: 1px solid #ddd;
+  padding: 20px;
+
+  div {
+    display: inline-block;
+    margin-right: 80px;
+    text-align: right;
+
+    .subtitle,
+    .data {
+      display: block;
+    }
+
+    .subtitle {
+      margin-bottom: 10px;
+    }
+
+    .data {
+      color: #333;
+      font-weight: 600;
+    }
+  }
+}
+
+.email-section {
+  li {
+    border-top: 1px solid #ddd;
+    display: block;
+    padding: 10px;
+    position: relative;
+
+    &:hover {
+      background: #eee;
+    }
+
+    .info {
+      line-height: 36px;
+
+      > div {
+        display: inline-block;
+        margin-right: 20px;
+        vertical-align: top;
+      }
+
+      .email-date { width: 100px; }
+      .email-name { width: 200px; }
+      .email-read { width: 100px; }
+      .email-resp { width: 100px; }
     }
   }
 }
